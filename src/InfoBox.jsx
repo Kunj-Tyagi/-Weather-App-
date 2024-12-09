@@ -8,7 +8,7 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import ThunderstormIcon from "@mui/icons-material/Thunderstorm";
 export default function InfoBox({ info }) {
   const INIT_URL =
-    "https://images.unsplash.com/photo-1722858343990-1604f540c15d?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHVzdHklMjB3ZWF0aGVyfGVufDB8fDB8fHww";
+    "https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFpbnl8ZW58MHx8MHx8fDA%3D";
 
   const HOT_URL =
     "https://media.istockphoto.com/id/1254065595/photo/hot-summer-or-heat-wave-background.jpg?s=612x612&w=0&k=20&c=wp60t_1SUG9qDTxzAJwvfZYlLVAiu9r737F_nvtOSPA=";
@@ -19,12 +19,19 @@ export default function InfoBox({ info }) {
 
   return (
     <div className="InfoBox">
-      <h3>WeatherInfo-{info.weather}</h3>
+      <br></br>
+      {/* <h3>WeatherInfo-{info.weather}</h3> */}
       <Card sx={{ maxWidth: 345 }}>
         <CardMedia
           sx={{ height: 140 }}
           image={
-            info.humidity > 80 ? RAIN_URL : info.temp > 15 ? HOT_URL : COLD_URL
+            info.city === "-" // Check if the city name is "-"
+              ? INIT_URL
+              : info.humidity > 80
+              ? RAIN_URL
+              : info.temp > 15
+              ? HOT_URL
+              : COLD_URL
           }
           title="green iguana"
         />
@@ -46,7 +53,7 @@ export default function InfoBox({ info }) {
             <p>Max-Temp= {info.tempMax}&deg;C</p>
             <p>
               The weather can be described as <i>{info.weather}</i> & feels like{" "}
-              {info.feelslike}&deg;C
+              {info.temp}&deg;C
             </p>
           </Typography>
         </CardContent>

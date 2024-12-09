@@ -42,6 +42,7 @@ export default function SearchBox({ updateinfo }) {
   // Function to handle input change
   let handleChange = (e) => {
     setCity(e.target.value);
+    setError(false);
   };
 
   // Function to handle form submission

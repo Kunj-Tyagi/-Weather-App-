@@ -5,13 +5,13 @@ import { useState } from "react"; // Importing the useState hook from React
 export default function WeatherApp() {
   // Initializing state for weather information with default values
   const [weatherInfo, setWeatherInfo] = useState({
-    city: "Hapur",
-    feelslike: 24.84,
-    temp: 25.05,
-    tempMin: 25.05,
-    tempMax: 25.05,
-    humidity: 47,
-    weather: "Haze",
+    city: "-",
+    feelslike: "-",
+    temp: "-",
+    tempMin: "-",
+    tempMax: "-",
+    humidity: "-",
+    weather: "-",
   });
 
   // Function to update the weather information state
